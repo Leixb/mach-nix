@@ -26,6 +26,8 @@ def context(py_ver: PyVer, platform: str, system: str):
 class Requirement:
     def __init__(self, name, extras, specs: Tuple[Tuple[Tuple[str, str]]], build=None, marker=None):
         self.name = name.lower().replace('_', '-')
+        if self.name == "babel":
+            self.name = "Babel"
         self.extras = extras or tuple()
         self.specs = specs or tuple()
         self.build = build
